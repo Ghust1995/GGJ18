@@ -7,7 +7,7 @@ public class Moviment_NPC : MonoBehaviour {
     GameObject Player;
     Rigidbody2D rb;
     public Vector2 Destination;
-    public Mood CurrentMood;
+    private Mood currentMood;
     LayerMask mask = 0;
 
     public bool Angry = false;
@@ -29,18 +29,18 @@ public class Moviment_NPC : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        CurrentMood = GetComponent<MoodBehaviour>().currentMood;
+        currentMood = GetComponent<MoodBehaviour>().currentMood;
 
 
         transform.position = Vector2.MoveTowards(transform.position, Destination,velocityNPC);
 
 
-        if (Vector2.Distance(Destination, transform.position) < 1 ) // && CurrentMood == Mood.Neutral)
+        if (Vector2.Distance(Destination, transform.position) < 1 ) // && currentMood == Mood.Neutral)
         {
             SetNextDestination();
         }
         /*
-        if (CurrentMood == Mood.Angry && !isFinding)
+        if (currentMood == Mood.Angry && !isFinding)
         {
             StartCoroutine(Find());
         }

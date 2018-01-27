@@ -59,9 +59,9 @@ public class MoodBehaviour : MonoBehaviour
   public float AnimationTime = 0.5f;
   private IEnumerator BecomeAngryCoroutine()
   {
-		currentMood = Mood.Angry;
-        //MODIFICADO AQUI
-        gameObject.layer = 8;
+    currentMood = Mood.Angry;
+    //MODIFICADO AQUI
+    gameObject.layer = 8;
     var color = GetComponent<SpriteRenderer>().color;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
@@ -69,9 +69,28 @@ public class MoodBehaviour : MonoBehaviour
       yield return null;
     }
 
-      GetComponent<SpriteRenderer>().color = Color.red;
+    GetComponent<SpriteRenderer>().color = Color.red;
   }
 
+  public void BecomeHappy()
+  {
+    StartCoroutine(BecomeHappyCoroutine());
+  }
+
+  private IEnumerator BecomeHappyCoroutine()
+  {
+    currentMood = Mood.Angry;
+    //MODIFICADO AQUI
+    gameObject.layer = 8;
+    var color = GetComponent<SpriteRenderer>().color;
+    for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
+    {
+      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.green, time);
+      yield return null;
+    }
+
+    GetComponent<SpriteRenderer>().color = Color.green;
+  }
   void OnCollisionEnter2D(Collision2D collision)
   {
     var tag = collision.gameObject.tag;
