@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class WorldData : MonoBehaviour
 {
-  public Vector2 RoamingArea;
+  public Rect Bounds;
   public void OnDrawGizmosSelected()
   {
-    Gizmos.DrawWireCube(Vector3.zero, new Vector3(RoamingArea.x, RoamingArea.y, 2));
+    Gizmos.DrawWireCube(Bounds.position, Bounds.size); 
   }
 }

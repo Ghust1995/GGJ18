@@ -6,7 +6,7 @@ public class Melee : MonoBehaviour {
 
 	public float AnimationTime;
 	public float Radius;
-	public float Angle;
+	//public float Angle;
 	public Hitbox hitboxPrefab;
 
 	public bool isShooting = false;
