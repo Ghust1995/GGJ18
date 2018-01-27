@@ -59,9 +59,7 @@ public class MoodBehaviour : MonoBehaviour
   public float AnimationTime = 0.5f;
   private IEnumerator BecomeAngryCoroutine()
   {
-		currentMood = Mood.Angry;
-        //MODIFICADO AQUI
-        gameObject.layer = 8;
+    currentMood = Mood.Angry;
     var color = GetComponent<SpriteRenderer>().color;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
@@ -69,9 +67,45 @@ public class MoodBehaviour : MonoBehaviour
       yield return null;
     }
 
-      GetComponent<SpriteRenderer>().color = Color.red;
+    GetComponent<SpriteRenderer>().color = Color.red;
   }
 
+  public void BecomeHappy()
+  {
+    StartCoroutine(BecomeHappyCoroutine());
+  }
+public float TimeToNeutral = 2;
+  private IEnumerator BecomeHappyCoroutine()
+  {
+    currentMood = Mood.Happy;
+    var color = GetComponent<SpriteRenderer>().color;
+    for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
+    {
+      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.green, time);
+      yield return null;
+    }
+
+    GetComponent<SpriteRenderer>().color = Color.green;
+    yield return new WaitForSeconds(TimeToNeutral);
+    yield return BecomeNeutralCoroutine();
+  }
+  public void BecomeNeutral()
+  {
+    StartCoroutine(BecomeNeutralCoroutine());
+  }
+
+  private IEnumerator BecomeNeutralCoroutine()
+  {
+    currentMood = Mood.Neutral;
+    var color = GetComponent<SpriteRenderer>().color;
+    for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
+    {
+      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.white, time);
+      yield return null;
+    }
+
+    GetComponent<SpriteRenderer>().color = Color.white;
+  }
   void OnCollisionEnter2D(Collision2D collision)
   {
     var tag = collision.gameObject.tag;
@@ -80,9 +114,13 @@ public class MoodBehaviour : MonoBehaviour
       case "NPC":
         {
           var npcMood = collision.gameObject.GetComponent<MoodBehaviour>();
-          if (currentMood == Mood.Angry)
+          if (currentMood == Mood.Angry && npcMood.currentMood == Mood.Neutral)
           {
             npcMood.BecomeAngry();
+          }
+          if (currentMood == Mood.Happy)
+          {
+            npcMood.BecomeHappy();
           }
           break;
         }
