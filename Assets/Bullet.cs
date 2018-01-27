@@ -50,6 +50,7 @@ public class Bullet : MonoBehaviour
     Destroy(GetComponent<Collider>());
     yield return new WaitForSeconds(KeepAliveTime);
     Destroy(this.gameObject);
+		Debug.Log("hahaha");
   }
 
   void OnCollisionEnter2D(Collision2D collision)
