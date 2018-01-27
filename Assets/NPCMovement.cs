@@ -14,7 +14,7 @@ public class NPCMovement : MonoBehaviour
   public bool Angry = false;
   private bool isFinding = false;
   private MoodBehaviour[] col;
-  public float VelocityNPC = 0.012f;
+  public Vector2 VelocityNPC = new Vector2(1, 0.5f);
   private Vector2 roamingArea;
 
 
@@ -33,12 +33,18 @@ public class NPCMovement : MonoBehaviour
   {
     currentMood = GetComponent<MoodBehaviour>().currentMood;
 
-    transform.position = Vector2.MoveTowards(transform.position, Destination, VelocityNPC);
+    var direction = -((Vector2)transform.position - Destination).normalized;
+    transform.position += (Vector3) (Vector2.Scale(direction, VelocityNPC) * Time.deltaTime);
 
-    if (Vector2.Distance(Destination, transform.position) < 0.01) // && currentMood == Mood.Neutral)
+    if (Vector2.Distance(Destination, transform.position) < 0.1) // && currentMood == Mood.Neutral)
     {
       SetNextDestination();
     }
+  }
+
+  void OnDrawGizmos() {
+      Gizmos.color = Color.white;
+      Gizmos.DrawLine(transform.position, Destination);
   }
 
   void SetNextDestination()
