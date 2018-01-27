@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Bullet : MonoBehaviour
 {
+
+	public Ammo ammoPrefab;
   public float speed;
   public float range;
   private float walkedDistance;
@@ -49,8 +51,8 @@ public class Bullet : MonoBehaviour
 		isStopped = true;
     Destroy(GetComponent<Collider>());
     yield return new WaitForSeconds(KeepAliveTime);
+		Instantiate(ammoPrefab, transform.position, Quaternion.identity);
     Destroy(this.gameObject);
-		Debug.Log("hahaha");
   }
 
   void OnCollisionEnter2D(Collision2D collision)
@@ -62,7 +64,7 @@ public class Bullet : MonoBehaviour
         {
           var npcMood = collision.gameObject.GetComponent<MoodBehaviour>();
           npcMood.BecomeHappy();
-          StartCoroutine(KeepCorpse());
+					Destroy(this.gameObject);
           break;
         }
       default:
