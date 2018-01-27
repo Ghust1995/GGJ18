@@ -43,10 +43,10 @@ public class Aim : MonoBehaviour
     Gizmos.color = Color.red;
     var position = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 		var v = position.x > 0 ? Vector3.right : Vector3.left;
-    Gizmos.DrawRay(reference.position, Quaternion.Euler(0, 0, MaxAngle) * v);
-    Gizmos.DrawRay(reference.position, Quaternion.Euler(0, 0, -MaxAngle) * v);
+    Gizmos.DrawRay(reference.position, Quaternion.Euler(0, 0, MaxAngle) * v * 100);
+    Gizmos.DrawRay(reference.position, Quaternion.Euler(0, 0, -MaxAngle) * v * 100);
 
     Gizmos.color = Color.green;
-    Gizmos.DrawRay(reference.position, (transform.position).normalized);
+    Gizmos.DrawRay(reference.position, (transform.position).normalized * 100);
   }
 }
