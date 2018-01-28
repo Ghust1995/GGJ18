@@ -18,6 +18,7 @@ public class MoodBehaviour : MonoBehaviour
   // Use this for initialization
   void Start()
   {
+    FindObjectOfType<NPCManager>().AllNPCs.Add(this);
 
     switch (currentMood)
     {
@@ -28,7 +29,7 @@ public class MoodBehaviour : MonoBehaviour
         }
       case Mood.Angry:
         {
-          GetComponent<SpriteRenderer>().color = Color.red;
+          GetComponent<SpriteRenderer>().color = Color.black;
           break;
         }
       case Mood.Happy:
@@ -63,11 +64,11 @@ public class MoodBehaviour : MonoBehaviour
     var color = GetComponent<SpriteRenderer>().color;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.red, time);
+      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.black, time);
       yield return null;
     }
 
-    GetComponent<SpriteRenderer>().color = Color.red;
+    GetComponent<SpriteRenderer>().color = Color.black;
   }
 
   public void BecomeHappy()

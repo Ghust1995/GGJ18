@@ -1,11 +1,11 @@
-﻿Shader "Unlit/SadnessFX"
+﻿Shader "Hidden/SadnessFX"
 {
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
 		_Value ("Value", Range (0,100)) = 0.0
-		_Value2 ("Perc", Range (0,1)) = 0.0
-		_Value3 ("Speed", Range (-10,10)) = 0.0
+		_Blend ("Perc", Range (0,1)) = 0.0
+		_Speed ("Speed", Range (-10,10)) = 0.0
 	}
 	SubShader
 	{
@@ -15,40 +15,18 @@
 		Pass
 		{
 			CGPROGRAM
-			#pragma vertex vert
+			#pragma vertex vert_img
 			#pragma fragment frag
 			// make fog work
 			#pragma multi_compile_fog
 			
 			#include "UnityCG.cginc"
 
-			struct appdata
-			{
-				float4 vertex : POSITION;
-				float2 uv : TEXCOORD0;
-			};
-
-			struct v2f
-			{
-				float2 uv : TEXCOORD0;
-				UNITY_FOG_COORDS(1)
-				float4 vertex : SV_POSITION;
-			};
-
 			sampler2D _MainTex;
 			float _Value;
-			float _Value2;
-			float _Value3;
-			float4 _MainTex_ST;
+			float _Blend;
+			float _Speed;
 			
-			v2f vert (appdata v)
-			{
-				v2f o;
-				o.vertex = UnityObjectToClipPos(v.vertex);
-				o.uv = TRANSFORM_TEX(v.uv, _MainTex);
-				UNITY_TRANSFER_FOG(o,o.vertex);
-				return o;
-			}
 float3 mod289(float3 x)
 {
     return x - floor(x / 289.0) * 289.0;
@@ -219,21 +197,22 @@ float4 snoise_grad(float3 v)
     float4 px = float4(dot(x0, g0), dot(x1, g1), dot(x2, g2), dot(x3, g3));
     return 42.0 * float4(grad, dot(m4, px));
 }
-			fixed4 frag (v2f i) : SV_Target
+			float4 frag (v2f_img i) : COLOR
 			{
 				
 				// sample the texture
-				float Pixels = 1024.0;
+				float Pixels = 1280.0;
 				float dx = 4.0 * (1.0 / Pixels);
-				float dy = 4.0 * (1.0 / Pixels);
-				fixed2 uv = fixed2(dx * floor(i.uv.x / dx), dy * floor(i.uv.y / dy));
-				fixed4 col = tex2D(_MainTex, i.uv);
+				float dy = 16.0/9.0 * 4.0 * (1.0 / Pixels);
+				float2 uv = float2(dx * floor(i.uv.x / dx), dy * floor(i.uv.y / dy));
+				float4 col = tex2D(_MainTex, i.uv);
 				//col = (col + fixed4(i.uv, 1.0, 1.0)) * 0.5;
-				float height = snoise(float3(uv * _Value, 10.0*sin(_Time.x * _Value3)));
+				//float height = snoise(float3(uv * _Value, 10.0*sin(_Time.x * _Speed)));
 				float gray = (col.r + col.g + col.b)/3.0;
 				float4 grayCol = 0.5 * float4(gray, gray, gray, 1.0);
-				float v = lerp(-1.1, 1.1, _Value2);
-				col = lerp(col, grayCol, smoothstep(height - 0.3, height + 0.3, v));
+				float v = lerp(-1.1, 1.1, _Blend);
+                float height = 1.0 - distance(float2(.5, .5), uv)/(0.5*sqrt(2));
+				col = lerp(col, grayCol, smoothstep(height - 0.1, height + 0.1, v));
 			// apply fog
 				//UNITY_APPLY_FOG(i.fogCoord, col);
 				return col;

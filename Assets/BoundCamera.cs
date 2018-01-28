@@ -17,7 +17,7 @@ public class BoundCamera : MonoBehaviour
   [Range(0, 1)]
   public float pushP;
 
-  Vector2 map = new Vector2(3512 / 4, 1436 / 4);
+  Vector2 map = new Vector2(2578 / 4, 1185 / 4);
 
   // Use this for initialization
   void Initialize()
