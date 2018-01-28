@@ -14,8 +14,8 @@ public class BoundCamera : MonoBehaviour
   Vector2 push;
 
   public Vector2 Offset;
-  [Range(0, 1)]
-  public float pushP;
+  public Vector2 PushOffset;
+  public Vector2 pushP;
 
   Vector2 map = new Vector2(2578 / 4, 1185 / 4);
 
@@ -23,17 +23,17 @@ public class BoundCamera : MonoBehaviour
   void Initialize()
   {
 
-    var vertExten = Camera.main.orthographicSize;
+    var vertExten = Camera.main.orthographicSize * 2.0f;
     var horiExten = vertExten * Screen.width / Screen.height;
 
-    max.x = map.x / 2 - horiExten;
-    max.y = map.y / 2 - vertExten;
+    max.x = map.x / 2 - horiExten/2;
+    max.y = map.y / 2 - vertExten/2;
 
-    min.x = horiExten - map.x / 2;
-    min.y = vertExten - map.y / 2;
+    min.x = horiExten/2 - map.x / 2;
+    min.y = vertExten/2 - map.y / 2;
 
-    push.y = pushP * vertExten;
-    push.x = pushP * horiExten;
+    push.y = pushP.y * vertExten;
+    push.x = pushP.x * horiExten;
 
     //print(vertExten + "    " + horiExten);
     // print(min.x + " MIN x " + min.y + " MIN Y " + max.x + " Max x " + max.y + " max.y ");
@@ -55,11 +55,10 @@ public class BoundCamera : MonoBehaviour
   // Update is called once per frame
   void LateUpdate()
   {
-
     Initialize();
     var cameraP = transform.position;
 
-    var pushed = pusher.position - (transform.position + (Vector3)Offset);
+    var pushed = pusher.position - (Vector3)PushOffset - (transform.position + (Vector3)Offset);
     var pushD = new Vector2(Mathf.Abs(pushed.x), Mathf.Abs(pushed.y));
     var pushS = new Vector2(Mathf.Sign(pushed.x), Mathf.Sign(pushed.y));
     
@@ -86,7 +85,7 @@ public class BoundCamera : MonoBehaviour
     Gizmos.color = Color.blue;
     Gizmos.DrawWireCube(Vector2.zero + Offset, new Vector2(max.x - min.x, max.y - min.y));
     Gizmos.color = Color.green;
-    Gizmos.DrawWireCube(transform.position + (Vector3)Offset, new Vector2(push.x, push.y));
+    Gizmos.DrawWireCube(transform.position + (Vector3)Offset + (Vector3) PushOffset, new Vector2(push.x, push.y));
     Gizmos.color = Color.magenta;
     Gizmos.DrawSphere(transform.position + (Vector3)Offset, 10);
   }

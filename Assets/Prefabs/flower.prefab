@@ -93,6 +93,8 @@ MonoBehaviour:
   PossibleColors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0.8620689, g: 1, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.006896496, a: 1}
+  - {r: 1, g: 0, b: 0.8896551, a: 1}
   IsAlive: 1
   IsGrowing: 0
   SpawnTime: 0.3

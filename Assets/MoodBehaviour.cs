@@ -13,23 +13,24 @@ public enum Mood
 public class MoodBehaviour : MonoBehaviour
 {
 
+  public Animator anim;
   public Mood currentMood;
 
   // Use this for initialization
   void Start()
   {
     FindObjectOfType<NPCManager>().AllNPCs.Add(this);
+    anim = GetComponent<Animator>();
 
     switch (currentMood)
     {
       case Mood.Neutral:
         {
-          GetComponent<SpriteRenderer>().color = Color.white;
           break;
         }
       case Mood.Angry:
         {
-          GetComponent<SpriteRenderer>().color = Color.black;
+          anim.SetTrigger("ToDevil");
           break;
         }
       case Mood.Happy:
@@ -62,31 +63,46 @@ public class MoodBehaviour : MonoBehaviour
   {
     currentMood = Mood.Angry;
     var color = GetComponent<SpriteRenderer>().color;
+    int i = 0;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.black, time);
+      if(i % 2 == 0) {
+        anim.SetTrigger("ToDevil");
+      }
+      if(i % 2 == 1) {
+        anim.SetTrigger("ToNormal");
+      }
       yield return null;
+      i++;
     }
 
-    GetComponent<SpriteRenderer>().color = Color.black;
+    anim.SetTrigger("ToDevil");
   }
 
   public void BecomeHappy()
   {
     StartCoroutine(BecomeHappyCoroutine());
   }
-public float TimeToNeutral = 2;
+  public float TimeToNeutral = 2;
   private IEnumerator BecomeHappyCoroutine()
   {
     currentMood = Mood.Happy;
     var color = GetComponent<SpriteRenderer>().color;
+    int i = 0;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.green, time);
+      if(i % 2 == 0) {
+        anim.SetTrigger("ToDevil");
+      }
+      if(i % 2 == 1) {
+        anim.SetTrigger("ToNormal");
+      }
       yield return null;
+      i++;
     }
 
-    GetComponent<SpriteRenderer>().color = Color.green;
+    //GetComponent<SpriteRenderer>().color = Color.green;
+    anim.SetTrigger("ToNormal");
     yield return new WaitForSeconds(TimeToNeutral);
     yield return BecomeNeutralCoroutine();
   }
@@ -101,11 +117,9 @@ public float TimeToNeutral = 2;
     var color = GetComponent<SpriteRenderer>().color;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      GetComponent<SpriteRenderer>().color = Color.Lerp(color, Color.white, time);
       yield return null;
     }
-
-    GetComponent<SpriteRenderer>().color = Color.white;
+    anim.SetTrigger("ToNormal");
   }
   void OnCollisionEnter2D(Collision2D collision)
   {

@@ -91,7 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoPrefab: {fileID: 114851301668896152, guid: a578079dadffa29408b14bf97960ee07,
     type: 2}
-  speed: 20
+  speed: 200
   range: 100
   direction: {x: 0, y: 0}
   rb: {fileID: 50897165536155530}
@@ -115,7 +115,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  KeepAliveTime: 10
+  KeepAliveTime: 3
 --- !u!212 &212320873190092668
 SpriteRenderer:
   m_ObjectHideFlags: 1
