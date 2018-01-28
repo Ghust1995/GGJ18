@@ -36,13 +36,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963660970557122}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.186, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.40912685, w: 0.9124775}
+  m_LocalPosition: {x: 115.63644, y: -32.592922, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 48.3}
 --- !u!50 &50906479868377258
 Rigidbody2D:
   serializedVersion: 4
@@ -75,9 +75,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -3.11, y: -3.46}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 3.9
 --- !u!114 &114851301668896152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -89,10 +89,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04abe735667f34744bb6241ad5151ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetScale: 1
-  Radius: 0
+  TargetScale: 0.5
+  PossibleColors:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0.8620689, g: 1, b: 0, a: 1}
   IsAlive: 1
-  IsGrowing: 1
+  IsGrowing: 0
   SpawnTime: 0.3
   spawnAnimation:
     serializedVersion: 2
@@ -119,7 +121,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   ReplicationTime: 3
-  ReplicationRadius: 0.3
+  MaxReplicationRadius: 6
 --- !u!212 &212023623936500818
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -151,13 +153,13 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1786366195
-  m_SortingLayer: -1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.94482756, g: 1, b: 0, a: 1}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: 9f480d6c116ecf74d93276c4f0d460f6, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
   m_AdaptiveModeThreshold: 0.5

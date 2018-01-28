@@ -9,12 +9,14 @@ public class Ammo : MonoBehaviour
   public float TargetScale;
   public List<Color> PossibleColors;
 
-  public float Radius;
+  private float radius;
+  private Vector2 center;
   void Start()
   {
     GetComponent<SpriteRenderer>().color = PossibleColors[Random.Range(0, PossibleColors.Count)];
     transform.localScale = Vector3.zero;
-    Radius = GetComponent<CircleCollider2D>().radius;
+    radius = GetComponent<CircleCollider2D>().radius;
+		center = (Vector2) transform.position + GetComponent<CircleCollider2D>().offset;
     StartCoroutine(Spawn());
   }
 
@@ -25,7 +27,7 @@ public class Ammo : MonoBehaviour
   public AnimationCurve spawnAnimation;
   public IEnumerator Spawn()
   {
-    var near = Physics2D.OverlapCircleAll(transform.position, Radius);
+    var near = Physics2D.OverlapCircleAll(center, radius);
     if (near.Length > 1)
     {
       Destroy(this.gameObject);
@@ -42,19 +44,20 @@ public class Ammo : MonoBehaviour
   }
 
   public float ReplicationTime = 10.0f;
-  public float ReplicationRadius = 0.1f;
+  public float MaxReplicationRadius = 6f;
   public IEnumerator Replicate()
   {
     yield return new WaitForSeconds(Random.Range(0.8f, 1.2f) * ReplicationTime);
     if (IsAlive)
     {
-      Instantiate(gameObject, transform.position + (Vector3)Random.insideUnitCircle.normalized * Random.Range(2 * Radius, ReplicationRadius), Quaternion.identity);
+      Instantiate(gameObject, transform.position + (Vector3)Random.insideUnitCircle.normalized * Random.Range(radius, MaxReplicationRadius), transform.rotation);
       yield return Replicate();
     }
   }
 
   public void OnCollisionEnter2D(Collision2D collision)
   {
+		Debug.Log("HIT");
     var tag = collision.gameObject.tag;
     switch (tag)
     {
@@ -67,9 +70,9 @@ public class Ammo : MonoBehaviour
         }
       case "Player":
         {
-          Destroy(this.gameObject);
           var gun = collision.gameObject.GetComponent<Gun>();
           gun.Flowers++;
+          Destroy(this.gameObject);
           break;
         }
       default:

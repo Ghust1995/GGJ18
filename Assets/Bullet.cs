@@ -35,7 +35,6 @@ public class Bullet : MonoBehaviour
       transform.position += speed * (Vector3)direction * Time.deltaTime;
     }
     walkedDistance += speed * Time.deltaTime;
-    Debug.Log(walkedDistance);
     GetComponent<SpriteRenderer>().color = Color.Lerp(baseColor, MinShadowColor, shadowFalloff.Evaluate(walkedDistance / range));
     transform.localScale = baseScale * Mathf.Lerp(baseScale.x, FinalScale * baseScale.x, 1.0f - shadowFalloff.Evaluate(walkedDistance / range));
     if (walkedDistance > range)

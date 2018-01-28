@@ -6,8 +6,8 @@ public class NPCMovement : MonoBehaviour
 {
 
   GameObject Player;
-  Rigidbody2D rb;
   public Vector2 Destination;
+
     private Transform Target;
   private Mood currentMood;
   LayerMask mask = 0;
@@ -16,23 +16,24 @@ public class NPCMovement : MonoBehaviour
     public bool Angry = false;
   private bool HaveTarget = false;
   private Collider [] col;
+
   public Vector2 VelocityNPC = new Vector2(1, 0.5f);
-  private Vector2 roamingArea;
+  private Rect roamingArea;
 
 
   // Use this for initialization
   void Start()
   {
-        rb = GetComponent<Rigidbody2D>();
     Destination = Random.insideUnitCircle * 5 + new Vector2(transform.position.x, transform.position.y);
     Player = GameObject.FindGameObjectWithTag("Player");
-    roamingArea = FindObjectOfType<WorldData>().RoamingArea;
+    roamingArea = FindObjectOfType<WorldData>().Bounds;
     SetNextDestination();
   }
 
   // Update is called once per frame
   void Update()
   {
+
         currentMood = GetComponent<MoodBehaviour>().currentMood;
 
         var direction = -((Vector2)transform.position - Destination).normalized;
@@ -56,6 +57,7 @@ public class NPCMovement : MonoBehaviour
        
 
 
+
   }
 
   void OnDrawGizmos() {
@@ -66,23 +68,22 @@ public class NPCMovement : MonoBehaviour
 
   void SetNextDestination()
   {
-            
-        
-            
-            Destination = RandomPointInSquare(Vector2.zero, roamingArea);
-        
+
+    Destination = RandomPointInSquare(roamingArea);
+
   }
 
-  Vector2 RandomPointInSquare(Vector2 center, Vector2 size){
-        return center + new Vector2(
-                (Random.value - 0.5f) * size.x,
-                (Random.value - 0.5f) * size.y);
+  Vector2 RandomPointInSquare(Rect r){
+        return r.position + new Vector2(
+                (Random.value - 0.5f) * r.size.x,
+                (Random.value - 0.5f) * r.size.y);
   }
 
 
 
   private void SearchTarget()
   {
+
         Collider2D [] col = Physics2D.OverlapCircleAll(transform.position, 3 );
 
             for (int i =0; i<col.Length ; i++)
@@ -140,9 +141,7 @@ public class NPCMovement : MonoBehaviour
         
         
 
-            
-        
-       
+
   }
 
     private void AttackTarget ()

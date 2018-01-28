@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerInput : MonoBehaviour {
 	public Gun weapon;
 	public Melee melee;
 	public Aim aim;
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour {
 
 		}
 	}
-	void Start () {
+	void Awake () {
 		weapon = GetComponent<Gun>();
 		melee = GetComponent<Melee>();
 	}
@@ -31,4 +31,15 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
+  void OnDrawGizmos()
+  {
+    Gizmos.color = Color.red;
+    var position = 2 * ((Vector2)mainCamera.ScreenToViewportPoint(Input.mousePosition) - 0.5f * Vector2.one);
+		var v = position.x < 0 ? Vector3.right : Vector3.left;
+    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 0, -aim.MaxAngle) * v * 100);
+    Gizmos.DrawRay(transform.position, Quaternion.Euler(0, 0, aim.MaxAngle) * v * 100);
+
+    Gizmos.color = Color.green;
+    Gizmos.DrawRay(transform.position, (aim.transform.position).normalized * 100);
+  }
 }
