@@ -20,6 +20,7 @@ public class NPCMovement : MonoBehaviour
 
   public Vector2 VelocityNPC = new Vector2(1, 0.5f);
   private Rect roamingArea;
+    private Rect friendlyArea;
 
 
   // Use this for initialization
@@ -28,6 +29,7 @@ public class NPCMovement : MonoBehaviour
     Destination = Random.insideUnitCircle * 5 + new Vector2(transform.position.x, transform.position.y);
     Player = GameObject.FindGameObjectWithTag("Player");
     roamingArea = FindObjectOfType<WorldData>().Bounds;
+    friendlyArea = FindObjectOfType<WorldData>().extendedBounds;
     sprite = GetComponent<SpriteRenderer>();
     SetNextDestination();
   }
@@ -66,11 +68,19 @@ public class NPCMovement : MonoBehaviour
     Gizmos.DrawWireSphere(transform.position, GiveUpDistance);
 
   }
-
+    public bool wantExit = false;
   public void SetNextDestination()
   {
+        if (wantExit == false)
+        {
+            Destination = RandomPointInSquare(roamingArea);
+        }
+        else
+        {
+            Destination = RandomPointInSquare(friendlyArea);
+        }
 
-    Destination = RandomPointInSquare(roamingArea);
+    
 
   }
 
@@ -121,7 +131,16 @@ public class NPCMovement : MonoBehaviour
 
     if (!didSomething && Vector2.Distance(transform.position, Destination) < ReachDistance)
     {
-      SetNextDestination();
+      var inside = Mathf.Abs(transform.position.x - roamingArea.position.x) < roamingArea.size.x / 2 && Mathf.Abs(transform.position.y - roamingArea.position.y) < roamingArea.size.y / 2;
+            if (inside)
+            {
+                wantExit = true;
+                SetNextDestination();
+            }
+                else
+            {
+                Destroy(gameObject);
+            }
     }
   }
 
