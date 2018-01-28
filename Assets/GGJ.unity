@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 313869564}
   - component: {fileID: 313869566}
   - component: {fileID: 313869565}
+  - component: {fileID: 313869567}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -426,6 +427,20 @@ MonoBehaviour:
   weapon: {fileID: 0}
   melee: {fileID: 0}
   aim: {fileID: 0}
+--- !u!114 &313869567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 313869559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25016d7eedd564a48bc7c63675b77d77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 0}
+  flowersToAmmo: 5
+  ammo: 0
 --- !u!1 &471718837
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,8 +816,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1662786988}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.6298506, y: 0.22255674, z: -0.0809448}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 44.2, y: 20.7, z: -0.0809448}
+  m_LocalScale: {x: 26.473976, y: 26.473982, z: 26.473982}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -907,8 +922,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1795585242}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.131, y: -0.754, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 93.1, y: -22.5, z: 0}
+  m_LocalScale: {x: 45.550682, y: 45.550682, z: 15.183561}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -976,7 +991,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxAngle: 60
-  reference: {fileID: 117943683}
+  reference: {fileID: 313869562}
 --- !u!212 &2015205895
 SpriteRenderer:
   m_ObjectHideFlags: 0
