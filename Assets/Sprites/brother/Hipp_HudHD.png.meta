@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4a395881b268ce94787fc3964cdbac36
-timeCreated: 1517161861
+timeCreated: 1517167125
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -109,11 +109,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 320
-        width: 236
-        height: 320
-      alignment: 9
-      pivot: {x: 0.82301325, y: 0.4999999}
+        y: 424
+        width: 212
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -122,12 +122,12 @@ TextureImporter:
       name: Hipp_HudHD_1
       rect:
         serializedVersion: 2
-        x: 236
-        y: 320
-        width: 236
-        height: 320
-      alignment: 9
-      pivot: {x: 0.63499063, y: 0.4999999}
+        x: 212
+        y: 424
+        width: 212
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -136,12 +136,12 @@ TextureImporter:
       name: Hipp_HudHD_2
       rect:
         serializedVersion: 2
-        x: 472
-        y: 320
-        width: 236
-        height: 320
-      alignment: 9
-      pivot: {x: 0.4614312, y: 0.4999999}
+        x: 0
+        y: 212
+        width: 212
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Hipp_HudHD_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 236
-        height: 320
-      alignment: 9
-      pivot: {x: 0.8278343, y: 0.63866657}
+        x: 212
+        y: 212
+        width: 212
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -164,12 +164,12 @@ TextureImporter:
       name: Hipp_HudHD_4
       rect:
         serializedVersion: 2
-        x: 236
+        x: 0
         y: 0
-        width: 236
-        height: 320
-      alignment: 9
-      pivot: {x: 0.63981175, y: 0.63511103}
+        width: 212
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

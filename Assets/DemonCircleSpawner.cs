@@ -50,7 +50,7 @@ public class DemonCircleSpawner : MonoBehaviour
   {
     return r.position + new Vector2(
             (Random.value - 0.5f) * r.size.x,
-            (Random.value - 0.5f) * r.size.y);
+            0.8f * (Random.value - 0.5f) * r.size.y);
   }
 
 }

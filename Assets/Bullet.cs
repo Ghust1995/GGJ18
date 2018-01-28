@@ -28,7 +28,7 @@ public class Bullet : MonoBehaviour
 
   public AnimationCurve shadowFalloff;
   private bool isStopped = false;
-  void Update()
+  void FixedUpdate()
   {
     if (!isStopped)
     {

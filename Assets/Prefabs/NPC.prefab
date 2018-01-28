@@ -57,7 +57,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838223922245216}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.7, y: -42.5, z: 0}
+  m_LocalPosition: {x: 202.3, y: 17.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4393279708269056}
@@ -120,7 +120,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.3, y: 26.02}
+  m_Size: {x: 7.97, y: 26.02}
   m_EdgeRadius: 0
 --- !u!95 &95959836582113040
 Animator:
@@ -167,6 +167,7 @@ MonoBehaviour:
   HappyParticles: {fileID: 198275179021206136}
   anim: {fileID: 0}
   currentMood: 1
+  isPlayer: 0
   NumNpcs: 11
   AnimationTime: 0.1
   TimeToNeutral: 2
@@ -181,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71fc86fa8fa72549b4950b3e8bc27ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Destination: {x: 0, y: 0}
+  Destination: {x: 206, y: -70}
   Target: {fileID: 0}
   HaveTarget: 0
   VelocityNPC: {x: 40, y: 20}
