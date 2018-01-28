@@ -33,6 +33,7 @@ public class PlayerInput : MonoBehaviour {
 
   void OnDrawGizmos()
   {
+        /*
     Gizmos.color = Color.red;
     var position = 2 * ((Vector2)mainCamera.ScreenToViewportPoint(Input.mousePosition) - 0.5f * Vector2.one);
 		var v = position.x < 0 ? Vector3.right : Vector3.left;
@@ -41,5 +42,6 @@ public class PlayerInput : MonoBehaviour {
 
     Gizmos.color = Color.green;
     Gizmos.DrawRay(transform.position, (aim.transform.position).normalized * 100);
-  }
+  */
+    }
 }

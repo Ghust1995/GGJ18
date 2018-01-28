@@ -67,7 +67,7 @@ public class NPCMovement : MonoBehaviour
 
   }
 
-  void SetNextDestination()
+  public void SetNextDestination()
   {
 
     Destination = RandomPointInSquare(roamingArea);
@@ -117,19 +117,6 @@ public class NPCMovement : MonoBehaviour
         didSomething = true;
         break;
       }
-
-      /* 
-    if (col[i].tag == "NPC" && col[i].GetComponent<MoodBehaviour>().currentMood == Mood.Neutral
-    && col[i].GetComponent<IsTarget>().isTarget == true)
-    {
-      continue;
-    }
-
-    if (col[i].tag == "NPC" && col[i].GetComponent<MoodBehaviour>().currentMood == Mood.Angry)
-    {
-      continue;
-    }
-    */
     }
 
     if (!didSomething && Vector2.Distance(transform.position, Destination) < ReachDistance)

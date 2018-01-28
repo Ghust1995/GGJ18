@@ -65,21 +65,14 @@ public class MoodBehaviour : MonoBehaviour
     currentMood = Mood.Angry;
     var color = GetComponent<SpriteRenderer>().color;
     int i = 0;
+    anim.SetTrigger("ToDevil");
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      if (i % 2 == 0)
-      {
-        anim.SetTrigger("ToDevil");
-      }
-      if (i % 2 == 1)
-      {
-        anim.SetTrigger("ToNormal");
-      }
       yield return null;
       i++;
     }
 
-    anim.SetTrigger("ToDevil");
+    
   }
 
   public void BecomeHappy()
@@ -94,25 +87,16 @@ public class MoodBehaviour : MonoBehaviour
     var color = GetComponent<SpriteRenderer>().color;
     int i = 0;
     HappyParticles.Play();
+    anim.SetTrigger("ToNormal");
+    gameObject.GetComponent<NPCMovement>().SetNextDestination();
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      if (fromDemon)
-      {
-        if (i % 2 == 0)
-        {
-          anim.SetTrigger("ToDevil");
-        }
-        if (i % 2 == 1)
-        {
-          anim.SetTrigger("ToNormal");
-        }
-      }
       yield return null;
       i++;
     }
 
     //GetComponent<SpriteRenderer>().color = Color.green;
-    anim.SetTrigger("ToNormal");
+    
     yield return new WaitForSeconds(TimeToNeutral);
     HappyParticles.Stop();
     yield return BecomeNeutralCoroutine();
@@ -130,7 +114,7 @@ public class MoodBehaviour : MonoBehaviour
     {
       yield return null;
     }
-    anim.SetTrigger("ToNormal");
+   
   }
   void OnCollisionEnter2D(Collision2D collision)
   {
