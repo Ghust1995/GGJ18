@@ -4,35 +4,36 @@ using UnityEngine;
 
 public class NPC_Spawner : MonoBehaviour {
 
-    public float MinTimeChange = 1, MaxTimeCHange = 1;
+    public float MinTimeChange = 1, MaxTimeChange = 1;
 
-    public float InitialTimeForSpawnNpc = 2f;
-    public float TimeAdicition = 0.9f;
+    public float InitialTimeForSpawnNpc = 30f;
     public GameObject NPC;
 
+    public List<Transform> spawnPoints;
 
     public int NPCCount;
     public int MaxNpcCount = 30;
 
 	// Use this for initialization
 	void Start () {
-        KeepSpawningNPCCoroutine(InitialTimeForSpawnNpc);
-
+        StartCoroutine(KeepSpawningNPCCoroutine(InitialTimeForSpawnNpc));
 	}
 
 
     IEnumerator KeepSpawningNPCCoroutine(float timeToSpawn)
     {
-        float wait = Random.Range(timeToSpawn * MinTimeChange, timeToSpawn * MaxTimeCHange);
+        float wait = Random.Range(timeToSpawn * MinTimeChange, timeToSpawn * MaxTimeChange);
         yield return new WaitForSeconds(wait);
 
         if (NPCCount < MaxNpcCount)
         {
-            Instantiate(NPC, transform.position, Quaternion.identity);
+            Debug.Log("New npc");
+            var pos = spawnPoints[Random.Range(0, spawnPoints.Count)].position;
+            Instantiate(NPC, pos, Quaternion.identity);
             NPCCount++;
         }
      
-        yield return KeepSpawningNPCCoroutine(TimeAdicition * timeToSpawn);
+        yield return KeepSpawningNPCCoroutine(timeToSpawn);
     }
 
 

@@ -28,7 +28,6 @@ public class DemonCircleSpawner : MonoBehaviour
   IEnumerator KeepSpawningCoroutine(float timeToSpawn)
   {
     float wait = Random.Range(timeToSpawn * MinTimeChange, timeToSpawn * MaxTimeCHange);
-    Debug.Log(wait);
     yield return new WaitForSeconds(wait);
     int numToSpawn = (int)Mathf.Floor(Mathf.Sqrt(Random.Range(1, (MaxToSpawn + 1) * (MaxToSpawn + 1))));
 		bool spawnedNearby = false;

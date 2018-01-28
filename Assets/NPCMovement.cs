@@ -8,14 +8,13 @@ public class NPCMovement : MonoBehaviour
   GameObject Player;
   public Vector2 Destination;
 
-  private Transform Target;
+  public Transform Target;
   private Mood currentMood;
   private SpriteRenderer sprite;
   LayerMask mask = 0;
 
   // bool tempDestiny = false;
-  public bool Angry = false;
-  private bool HaveTarget = false;
+  public bool HaveTarget = false;
   private Collider[] col;
 
   public Vector2 VelocityNPC = new Vector2(1, 0.5f);
@@ -26,12 +25,14 @@ public class NPCMovement : MonoBehaviour
   // Use this for initialization
   void Start()
   {
-    Destination = Random.insideUnitCircle * 5 + new Vector2(transform.position.x, transform.position.y);
     Player = GameObject.FindGameObjectWithTag("Player");
     roamingArea = FindObjectOfType<WorldData>().Bounds;
     friendlyArea = FindObjectOfType<WorldData>().extendedBounds;
     sprite = GetComponent<SpriteRenderer>();
-    SetNextDestination();
+    if (!HaveTarget && Vector2.Distance(Destination,Vector2.zero) < 0.01)
+    {
+      SetNextDestination();
+    }
   }
 
   // Update is called once per frame
@@ -45,7 +46,17 @@ public class NPCMovement : MonoBehaviour
 
     if (currentMood == Mood.Neutral && Vector2.Distance(Destination, transform.position) < ReachDistance)
     {
-      SetNextDestination();
+      var inside = Mathf.Abs(transform.position.x - roamingArea.position.x) < roamingArea.size.x / 2 && Mathf.Abs(transform.position.y - roamingArea.position.y) < roamingArea.size.y / 2;
+      if (inside)
+      {
+        wantExit = true;
+        SetNextDestination();
+      }
+      else
+      {
+        Destroy(gameObject);
+        FindObjectOfType<NPC_Spawner>().NPCCount--;
+      }
     }
     if (currentMood == Mood.Angry && HaveTarget == false)
     {
