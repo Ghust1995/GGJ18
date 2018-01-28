@@ -36,7 +36,7 @@ public class StartOptions : MonoBehaviour {
         //Get a reference to the CanvasGroup attached to the main menu so that we can fade it's alpha
         menuCanvasGroup = GetComponent<CanvasGroup>();
 
-        fadeImage.color = menuSettingsData.sceneChangeFadeColor;
+        //fadeImage.color = menuSettingsData.sceneChangeFadeColor;
 	}
 
 
@@ -44,10 +44,7 @@ public class StartOptions : MonoBehaviour {
 	{
 		//If changeMusicOnStart is true, fade out volume of music group of AudioMixer by calling FadeDown function of PlayMusic
 		//To change fade time, change length of animation "FadeToColor"
-		if (menuSettingsData.musicLoopToChangeTo != null) 
-		{
-			playMusic.FadeDown(menuSettingsData.menuFadeTime);
-		}
+		playMusic.FadeDown(menuSettingsData.menuFadeTime);
 
 		//If changeScenes is true, start fading and change scenes halfway through animation when screen is blocked by FadeImage
 		if (menuSettingsData.nextSceneIndex != 0) 
@@ -126,7 +123,7 @@ public class StartOptions : MonoBehaviour {
     {
 
         float elapsedTime = 0f;
-        float totalDuration = menuSettingsData.menuFadeTime;
+        float totalDuration = 0f;
 
         while (elapsedTime < totalDuration)
         {
@@ -138,7 +135,8 @@ public class StartOptions : MonoBehaviour {
 
         HideDelayed();
         Debug.Log("Coroutine done. Game started in same scene! Put your game starting stuff here.");
-        SceneManager.LoadScene(1,LoadSceneMode.Additive);
+		FindObjectOfType<EnableMouse>().GetComponent<AudioSource>().Stop();
+        SceneManager.LoadScene(1);
     }
 
 

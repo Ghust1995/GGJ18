@@ -12,6 +12,6 @@ public class PlayerDeath : MonoBehaviour {
 		this.gameObject.SetActive(false);
 		source.Play();
 		musica.Stop();
-		
+		FindObjectOfType<ClickToMenu>().CanClickToMenu = true;
 	}
 }

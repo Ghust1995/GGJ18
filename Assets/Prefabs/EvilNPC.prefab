@@ -9,40 +9,23 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1851407098508868}
+  m_RootGameObject: {fileID: 1305713824530704}
   m_IsPrefabParent: 1
---- !u!1 &1823533793747508
+--- !u!1 &1305713824530704
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4494727563396604}
-  - component: {fileID: 198124772654826034}
-  - component: {fileID: 199702281406444182}
-  m_Layer: 0
-  m_Name: HappyParticles
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1851407098508868
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4099249538756990}
-  - component: {fileID: 212328752689069046}
-  - component: {fileID: 114707978228324288}
-  - component: {fileID: 50817558875477854}
-  - component: {fileID: 114605221255435536}
-  - component: {fileID: 61983941430506104}
-  - component: {fileID: 95103168734579014}
-  - component: {fileID: 114163888063628730}
+  - component: {fileID: 4339885139707828}
+  - component: {fileID: 212091455481240846}
+  - component: {fileID: 114069972018838452}
+  - component: {fileID: 50092195134178998}
+  - component: {fileID: 114135981526565512}
+  - component: {fileID: 61664232095745418}
+  - component: {fileID: 95678548044526958}
+  - component: {fileID: 114952797417118312}
   m_Layer: 0
   m_Name: EvilNPC
   m_TagString: NPC
@@ -50,40 +33,57 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4099249538756990
+--- !u!1 &1915443006361230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4823014642449170}
+  - component: {fileID: 198091131768337028}
+  - component: {fileID: 199715596387169132}
+  m_Layer: 0
+  m_Name: HappyParticles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4339885139707828
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
+  m_GameObject: {fileID: 1305713824530704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 262.4, y: -66, z: 0}
+  m_LocalPosition: {x: 206.1, y: -70.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4494727563396604}
+  - {fileID: 4823014642449170}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4494727563396604
+--- !u!4 &4823014642449170
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823533793747508}
+  m_GameObject: {fileID: 1915443006361230}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0, y: -4.6, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4099249538756990}
+  m_Father: {fileID: 4339885139707828}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!50 &50817558875477854
+--- !u!50 &50092195134178998
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
+  m_GameObject: {fileID: 1305713824530704}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 1
@@ -97,12 +97,12 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61983941430506104
+--- !u!61 &61664232095745418
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
+  m_GameObject: {fileID: 1305713824530704}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -120,15 +120,15 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.8, y: 23.54}
+  m_Size: {x: 9.9, y: 23.35}
   m_EdgeRadius: 0
---- !u!95 &95103168734579014
+--- !u!95 &95678548044526958
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
+  m_GameObject: {fileID: 1305713824530704}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 08599324d772d4a4e95ecde22b5a10be, type: 2}
@@ -139,12 +139,49 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114163888063628730
+--- !u!114 &114069972018838452
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
+  m_GameObject: {fileID: 1305713824530704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6db98807edc43c948bda486735af84d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HappyParticles: {fileID: 198091131768337028}
+  anim: {fileID: 0}
+  currentMood: 2
+  isPlayer: 0
+  NumNpcs: 11
+  AnimationTime: 0.1
+  TimeToNeutral: 2
+--- !u!114 &114135981526565512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305713824530704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f71fc86fa8fa72549b4950b3e8bc27ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Destination: {x: 0, y: 0}
+  Target: {fileID: 0}
+  HaveTarget: 1
+  VelocityNPC: {x: 40, y: 20}
+  wantExit: 0
+  SearchRadius: 69.35
+  ReachDistance: 10
+  GiveUpDistance: 84.83
+--- !u!114 &114952797417118312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1305713824530704}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dd9c59479bcef2e4181a8a253ff7792b, type: 3}
@@ -153,47 +190,12 @@ MonoBehaviour:
   isTarget: 0
   currentMood: 0
   seekers: 0
---- !u!114 &114605221255435536
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f71fc86fa8fa72549b4950b3e8bc27ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Destination: {x: 0, y: 0}
-  Angry: 0
-  VelocityNPC: {x: 40, y: 20}
-  wantExit: 0
-  SearchRadius: 69.35
-  ReachDistance: 10
-  GiveUpDistance: 84.83
---- !u!114 &114707978228324288
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6db98807edc43c948bda486735af84d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HappyParticles: {fileID: 198124772654826034}
-  anim: {fileID: 0}
-  currentMood: 2
-  NumNpcs: 11
-  AnimationTime: 0.1
-  TimeToNeutral: 2
---- !u!198 &198124772654826034
+--- !u!198 &198091131768337028
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823533793747508}
+  m_GameObject: {fileID: 1915443006361230}
   serializedVersion: 5
   lengthInSec: 2
   simulationSpeed: 1
@@ -3648,13 +3650,13 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &199702281406444182
+--- !u!199 &199715596387169132
 ParticleSystemRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823533793747508}
+  m_GameObject: {fileID: 1915443006361230}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -3702,12 +3704,12 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!212 &212328752689069046
+--- !u!212 &212091455481240846
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1851407098508868}
+  m_GameObject: {fileID: 1305713824530704}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0

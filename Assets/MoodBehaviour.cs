@@ -16,6 +16,7 @@ public class MoodBehaviour : MonoBehaviour
 
   public Animator anim;
   public Mood currentMood;
+  public bool isPlayer;
 
   public int NumNpcs = 11;
 
@@ -25,6 +26,7 @@ public class MoodBehaviour : MonoBehaviour
     FindObjectOfType<NPCManager>().AllNPCs.Add(this);
     anim = GetComponent<Animator>();
     anim.SetInteger("NPC", Random.Range(1, NumNpcs + 1));
+    anim.SetBool("IsPlayer", isPlayer);
 
     switch (currentMood)
     {
