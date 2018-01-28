@@ -44,6 +44,7 @@ public class Gun : MonoBehaviour
       FindObjectOfType<BoundCamera>().ScreenShake();
       anim.SetTrigger("Shoot");
       ps.Play();
+      GetComponent<AudioController>().PlaySound();
       if(!HasInfiniteAmmo) {      
         ammo--;
         ammo = Mathf.Clamp(ammo, 0, 4);
