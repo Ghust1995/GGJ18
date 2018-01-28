@@ -5,8 +5,12 @@ using UnityEngine;
 public class WorldData : MonoBehaviour
 {
   public Rect Bounds;
-  public void OnDrawGizmosSelected()
+    public Rect extendedBounds;
+    public void OnDrawGizmosSelected()
   {
-    Gizmos.DrawWireCube(Bounds.position, Bounds.size); 
-  }
+        Gizmos.color = Color.red;
+    Gizmos.DrawWireCube(Bounds.position, Bounds.size);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireCube(extendedBounds.position, extendedBounds.size);
+    }
 }
