@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
 
   public int flowersToAmmo = 5;
   public int ammo = 0;
+  public bool HasInfiniteAmmo = false;
 
   private int _flowers = 0;
   public int Flowers
@@ -33,7 +34,10 @@ public class Gun : MonoBehaviour
     {
       var bullet = Instantiate(bulletPrefab, position, Quaternion.Euler(0, 0, Mathf.Rad2Deg * Mathf.Atan2(direction.y, direction.x)));
       bullet.direction = direction.normalized;
-      ammo--;
+      FindObjectOfType<BoundCamera>().ScreenShake();
+      if(!HasInfiniteAmmo) {      
+        ammo--;
+      }
     }
   }
 }

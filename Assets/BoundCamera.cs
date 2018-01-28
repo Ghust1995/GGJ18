@@ -74,11 +74,29 @@ public class BoundCamera : MonoBehaviour
 
     cameraP.x = Mathf.Clamp(cameraP.x, min.x, max.x);
     cameraP.y = Mathf.Clamp(cameraP.y, min.y, max.y);
-    transform.position = cameraP;
+    transform.position = cameraP + (Vector3)ScreenShakeOffset;
+  }
+
+  public Vector2 ScreenShakeOffset;
+  public float MaxScreenShake;
+  public float ScreenShakeTime;
+
+  public IEnumerator ScreenShakeCoroutine() {
+      for(float time = 0.0f; time < ScreenShakeTime; time += Time.deltaTime) {
+
+          ScreenShakeOffset = Random.insideUnitCircle * MaxScreenShake;
+          yield return null;
+      }
+      ScreenShakeOffset = Vector2.zero;
+  }
+
+    [ContextMenu ("ScreenShake")]
+  public void ScreenShake() {
+      StartCoroutine(ScreenShakeCoroutine());
 
   }
 
-  private void OnDrawGizmos()
+  private void OnDrawGizmosSelected()
   {
     Gizmos.color = Color.red;
     Gizmos.DrawWireCube(Vector2.zero, new Vector2(map.x, map.y));

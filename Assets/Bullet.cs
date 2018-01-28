@@ -48,7 +48,6 @@ public class Bullet : MonoBehaviour
   private IEnumerator KeepCorpse()
   {
 		isStopped = true;
-    Destroy(GetComponent<Collider>());
     yield return new WaitForSeconds(KeepAliveTime);
 		Instantiate(ammoPrefab, transform.position, Quaternion.identity);
     Destroy(this.gameObject);
@@ -63,6 +62,9 @@ public class Bullet : MonoBehaviour
         {
           var npcMood = collision.gameObject.GetComponent<MoodBehaviour>();
           npcMood.BecomeHappy();
+          if(!isStopped) {
+            FindObjectOfType<Freezer>().Freeze();
+          }
 					Destroy(this.gameObject);
           break;
         }

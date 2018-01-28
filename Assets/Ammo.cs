@@ -57,7 +57,6 @@ public class Ammo : MonoBehaviour
 
   public void OnCollisionEnter2D(Collision2D collision)
   {
-		Debug.Log("HIT");
     var tag = collision.gameObject.tag;
     switch (tag)
     {

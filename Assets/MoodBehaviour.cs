@@ -66,10 +66,12 @@ public class MoodBehaviour : MonoBehaviour
     int i = 0;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      if(i % 2 == 0) {
+      if (i % 2 == 0)
+      {
         anim.SetTrigger("ToDevil");
       }
-      if(i % 2 == 1) {
+      if (i % 2 == 1)
+      {
         anim.SetTrigger("ToNormal");
       }
       yield return null;
@@ -86,16 +88,22 @@ public class MoodBehaviour : MonoBehaviour
   public float TimeToNeutral = 2;
   private IEnumerator BecomeHappyCoroutine()
   {
+    bool fromDemon = currentMood == Mood.Angry;
     currentMood = Mood.Happy;
     var color = GetComponent<SpriteRenderer>().color;
     int i = 0;
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
-      if(i % 2 == 0) {
-        anim.SetTrigger("ToDevil");
-      }
-      if(i % 2 == 1) {
-        anim.SetTrigger("ToNormal");
+      if (fromDemon)
+      {
+        if (i % 2 == 0)
+        {
+          anim.SetTrigger("ToDevil");
+        }
+        if (i % 2 == 1)
+        {
+          anim.SetTrigger("ToNormal");
+        }
       }
       yield return null;
       i++;
