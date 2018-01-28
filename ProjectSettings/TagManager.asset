@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: PLayer
+    uniqueID: 2180412903
+    locked: 0
+  - name: Ammo
+    uniqueID: 3733200869
+    locked: 0
   - name: Foreground
     uniqueID: 3080413641
     locked: 0

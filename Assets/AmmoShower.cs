@@ -36,7 +36,6 @@ public class AmmoShower : MonoBehaviour
     int distances = Ammo - 1;
     float lateralSize = distances * Distance;
     float hWidth = lateralSize / 2;
-		Debug.Log(hWidth);
     int i = 0;
     foreach (Transform c in transform)
     {

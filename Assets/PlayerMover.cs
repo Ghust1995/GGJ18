@@ -8,6 +8,8 @@ public class PlayerMover : MonoBehaviour
   SpriteRenderer sprite;
   public Vector2 speed = new Vector2(10, 10);
   private Rect bounds;
+
+  public Vector2 deltaMove;
   // Use this for initialization
   void Start()
   {
@@ -22,7 +24,7 @@ public class PlayerMover : MonoBehaviour
     //Movimentacoes singulares 
     var initialPosition = transform.position;
     var nextPosition = transform.position;
-    var deltaMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+    deltaMove = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
     nextPosition += (Vector3)(Time.deltaTime * Vector2.Scale(speed, deltaMove));
     var relativeToBounds = (transform.position - (Vector3)bounds.position);
     var relAbs = new Vector2(Mathf.Abs(relativeToBounds.x), Mathf.Abs(relativeToBounds.y));
