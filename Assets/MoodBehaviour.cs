@@ -109,7 +109,7 @@ public class MoodBehaviour : MonoBehaviour
     {
       yield return null;
     }
-   
+
   }
   void OnCollisionEnter2D(Collision2D collision)
   {
@@ -131,6 +131,10 @@ public class MoodBehaviour : MonoBehaviour
         }
       case "Player":
         {
+          if (currentMood == Mood.Angry)
+          {
+            collision.gameObject.GetComponent<PlayerDeath>().Die();
+          }
           break;
         }
       default:

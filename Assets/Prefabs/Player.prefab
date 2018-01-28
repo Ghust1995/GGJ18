@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 95068220268154776}
   - component: {fileID: 114860645586016104}
   - component: {fileID: 114473521722500654}
+  - component: {fileID: 114825307066467144}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -115,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1641175125558636
 GameObject:
   m_ObjectHideFlags: 1
@@ -201,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1471265969469566}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: 0, z: 0}
+  m_LocalPosition: {x: 9, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4972367992213566}
@@ -214,7 +215,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1144336959631194}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4972367992213566}
@@ -227,7 +228,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1641175125558636}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4972367992213566}
@@ -322,7 +323,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.4278793, y: 4.997158}
+  m_Offset: {x: -2.13, y: -3.83}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -333,7 +334,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 9.9214325, y: 23.913506}
+  m_Size: {x: 4.3, y: 9.28}
   m_EdgeRadius: 0
 --- !u!95 &95068220268154776
 Animator:
@@ -401,7 +402,7 @@ MonoBehaviour:
   anim: {fileID: 95580850366772684}
   ps: {fileID: 198036290923668058}
   flowersToAmmo: 5
-  ammo: 3
+  ammo: 2
   MaxAmmo: 4
   HasInfiniteAmmo: 0
   spawnPoint: {fileID: 4303690980403432}
@@ -432,6 +433,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 80, y: 40}
+  deltaMove: {x: 0, y: 0}
 --- !u!114 &114610630546722458
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -443,7 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b09870a4f05a2446ba0edcd9c5fbc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Distance: 3
+  Distance: 6
 --- !u!114 &114716138492382742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -458,6 +460,19 @@ MonoBehaviour:
   weapon: {fileID: 114220990295997364}
   melee: {fileID: 114168944173516962}
   aim: {fileID: 0}
+--- !u!114 &114825307066467144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168945783325708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97511780d967bde4a9acb656085021ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EvilNpcPrefab: {fileID: 114707978228324288, guid: 4dfd996aace5ff94b96725fe2af6462a,
+    type: 2}
 --- !u!114 &114860645586016104
 MonoBehaviour:
   m_ObjectHideFlags: 1

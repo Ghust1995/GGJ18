@@ -31,12 +31,16 @@ public class DemonCircleSpawner : MonoBehaviour
     Debug.Log(wait);
     yield return new WaitForSeconds(wait);
     int numToSpawn = (int)Mathf.Floor(Mathf.Sqrt(Random.Range(1, (MaxToSpawn + 1) * (MaxToSpawn + 1))));
+		bool spawnedNearby = false;
     for (int i = 0; i < numToSpawn; i++)
     {
       var pos = RandomPointInSquare(possibleArea);
-			if(Random.value < chanceToSpawnNearby) {
+			if(!spawnedNearby && Random.value < chanceToSpawnNearby) {
 				var p = FindObjectOfType<PlayerMover>();
-				pos = (Vector2)p.transform.position + p.deltaMove / Time.deltaTime * demonCirclePrefab.Delay * DelayFix;
+				if(p != null) {
+					pos = (Vector2)p.transform.position + p.deltaMove / Time.deltaTime * demonCirclePrefab.Delay * DelayFix;
+					spawnedNearby = true;
+				}
 			}
       Instantiate(demonCirclePrefab, pos, Quaternion.identity);
     }

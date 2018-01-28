@@ -58,6 +58,8 @@ public class DemonCircle : MonoBehaviour
         }
       case "Player":
         {
+					Debug.Log("Hello player");
+          collision.gameObject.GetComponent<PlayerDeath>().Die();
           break;
         }
       default:
