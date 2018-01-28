@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 50197774128417348}
   - component: {fileID: 61281911690568884}
   - component: {fileID: 95068220268154776}
+  - component: {fileID: 114860645586016104}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -140,6 +141,7 @@ MonoBehaviour:
     type: 2}
   flowersToAmmo: 5
   ammo: 100
+  HasInfiniteAmmo: 0
 --- !u!114 &114521146622769364
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -166,6 +168,20 @@ MonoBehaviour:
   weapon: {fileID: 114220990295997364}
   melee: {fileID: 114168944173516962}
   aim: {fileID: 0}
+--- !u!114 &114860645586016104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1168945783325708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9c59479bcef2e4181a8a253ff7792b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTarget: 0
+  currentMood: 0
+  seekers: 0
 --- !u!212 &212365123187965924
 SpriteRenderer:
   m_ObjectHideFlags: 1

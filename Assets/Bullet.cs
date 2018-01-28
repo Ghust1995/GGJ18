@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
     rb = GetComponent<Rigidbody2D>();
     baseColor = GetComponent<SpriteRenderer>().color;
     baseScale = transform.localScale;
-    GetComponent<SpriteRenderer>().color = Color.Lerp(baseColor, MinShadowColor, shadowFalloff.Evaluate(0));
+    //GetComponent<SpriteRenderer>().color = Color.Lerp(baseColor, MinShadowColor, shadowFalloff.Evaluate(0));
   }
 
   public AnimationCurve shadowFalloff;
@@ -35,8 +35,8 @@ public class Bullet : MonoBehaviour
       transform.position += speed * (Vector3)direction * Time.deltaTime;
     }
     walkedDistance += speed * Time.deltaTime;
-    GetComponent<SpriteRenderer>().color = Color.Lerp(baseColor, MinShadowColor, shadowFalloff.Evaluate(walkedDistance / range));
-    transform.localScale = baseScale * Mathf.Lerp(baseScale.x, FinalScale * baseScale.x, 1.0f - shadowFalloff.Evaluate(walkedDistance / range));
+    //GetComponent<SpriteRenderer>().color = Color.Lerp(baseColor, MinShadowColor, shadowFalloff.Evaluate(walkedDistance / range));
+    //transform.localScale = baseScale * Mathf.Lerp(baseScale.x, FinalScale * baseScale.x, 1.0f - shadowFalloff.Evaluate(walkedDistance / range));
     if (walkedDistance > range)
     {
       StartCoroutine(KeepCorpse());

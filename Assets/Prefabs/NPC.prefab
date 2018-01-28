@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114965872881268670}
   - component: {fileID: 61585907653720778}
   - component: {fileID: 95959836582113040}
+  - component: {fileID: 114361673016560568}
   m_Layer: 0
   m_Name: NPC
   m_TagString: NPC
@@ -138,6 +139,20 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114361673016560568
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1838223922245216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd9c59479bcef2e4181a8a253ff7792b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTarget: 0
+  currentMood: 0
+  seekers: 0
 --- !u!114 &114501958457665706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -168,6 +183,9 @@ MonoBehaviour:
   Destination: {x: 0, y: 0}
   Angry: 0
   VelocityNPC: {x: 40, y: 20}
+  SearchRadius: 69.35
+  ReachDistance: 10
+  GiveUpDistance: 84.83
 --- !u!198 &198275179021206136
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -180,7 +198,7 @@ ParticleSystem:
   stopAction: 0
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
