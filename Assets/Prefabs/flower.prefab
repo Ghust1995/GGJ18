@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 58170088231164322}
   - component: {fileID: 50906479868377258}
   - component: {fileID: 114851301668896152}
+  - component: {fileID: 95970570255178690}
   m_Layer: 0
   m_Name: flower
   m_TagString: Untagged
@@ -36,13 +37,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1963660970557122}
-  m_LocalRotation: {x: 0, y: 0, z: 0.40912685, w: 0.9124775}
-  m_LocalPosition: {x: 115.63644, y: -32.592922, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 109.1, y: 23.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 48.3}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50906479868377258
 Rigidbody2D:
   serializedVersion: 4
@@ -75,9 +76,26 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -3.11, y: -3.46}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.9
+  m_Radius: 1
+--- !u!95 &95970570255178690
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1963660970557122}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8e70c50c159a81c4aaf322149da1c14b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114851301668896152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,12 +108,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetScale: 0.5
-  PossibleColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0.8620689, g: 1, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0.006896496, a: 1}
-  - {r: 1, g: 0, b: 0.8896551, a: 1}
+  worldData: {fileID: 0}
+  animator: {fileID: 0}
   IsAlive: 1
+  MaxFlowersInGroup: 10
+  FlowersInGroup: 0
+  First: {fileID: 0}
+  isFirst: 1
   IsGrowing: 0
   SpawnTime: 0.3
   spawnAnimation:
@@ -122,8 +141,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  ReplicationTime: 3
-  MaxReplicationRadius: 6
+  ReplicationTime: 1.5
+  MaxReplicationRadius: 10
 --- !u!212 &212023623936500818
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -158,12 +177,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 9f480d6c116ecf74d93276c4f0d460f6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 6607f738232162042bae925917011df6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 1
+  m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.2, y: 0.2}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

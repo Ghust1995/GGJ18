@@ -37,19 +37,27 @@ public class Bullet : MonoBehaviour
     walkedDistance += speed * Time.deltaTime;
     //GetComponent<SpriteRenderer>().color = Color.Lerp(baseColor, MinShadowColor, shadowFalloff.Evaluate(walkedDistance / range));
     //transform.localScale = baseScale * Mathf.Lerp(baseScale.x, FinalScale * baseScale.x, 1.0f - shadowFalloff.Evaluate(walkedDistance / range));
-    if (walkedDistance > range)
+    if (walkedDistance > range && !isStopped)
     {
       StartCoroutine(KeepCorpse());
     }
   }
 
   public float KeepAliveTime = 10;
+  public float FadeOutTime = 1.0f;
 
   private IEnumerator KeepCorpse()
   {
 		isStopped = true;
     yield return new WaitForSeconds(KeepAliveTime);
-		Instantiate(ammoPrefab, transform.position, Quaternion.identity);
+    Destroy(GetComponent<Collider2D>());
+		var go = Instantiate(ammoPrefab, transform.position, Quaternion.identity);
+    go.GetComponent<Ammo>().isFirst = true;
+    var color = GetComponent<SpriteRenderer>().color;
+    for(float time = 0.0f; time < FadeOutTime; time += Time.deltaTime) {
+      GetComponent<SpriteRenderer>().color = new Color(color.r, color.g, color.b, 1.0f - time/FadeOutTime);
+      yield return null;
+    }
     Destroy(this.gameObject);
   }
 
