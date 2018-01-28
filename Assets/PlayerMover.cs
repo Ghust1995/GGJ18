@@ -36,7 +36,7 @@ public class PlayerMover : MonoBehaviour
       nextPosition.y = initialPosition.y;
     }
     transform.position = nextPosition;
-
+        
     if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
     {
       anim.SetBool("moving", true);
