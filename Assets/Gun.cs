@@ -8,10 +8,11 @@ public class Gun : MonoBehaviour
 
   public Animator anim;
 
-  public ParticleSystem particleSystem;
+  public ParticleSystem ps;
 
   public int flowersToAmmo = 5;
   public int ammo = 0;
+  public int MaxAmmo = 4;
   public bool HasInfiniteAmmo = false;
 
   private int _flowers = 0;
@@ -28,6 +29,7 @@ public class Gun : MonoBehaviour
       {
         _flowers -= flowersToAmmo;
         ammo++;
+        ammo = Mathf.Clamp(ammo, 0, 4);
       }
     }
   }
@@ -41,9 +43,10 @@ public class Gun : MonoBehaviour
       bullet.direction = direction.normalized;
       FindObjectOfType<BoundCamera>().ScreenShake();
       anim.SetTrigger("Shoot");
-      particleSystem.Play();
+      ps.Play();
       if(!HasInfiniteAmmo) {      
         ammo--;
+        ammo = Mathf.Clamp(ammo, 0, 4);
       }
     }
   }

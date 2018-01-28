@@ -64,15 +64,11 @@ public class MoodBehaviour : MonoBehaviour
   {
     currentMood = Mood.Angry;
     var color = GetComponent<SpriteRenderer>().color;
-    int i = 0;
     anim.SetTrigger("ToDevil");
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
       yield return null;
-      i++;
     }
-
-    
   }
 
   public void BecomeHappy()
@@ -82,21 +78,17 @@ public class MoodBehaviour : MonoBehaviour
   public float TimeToNeutral = 2;
   private IEnumerator BecomeHappyCoroutine()
   {
-    bool fromDemon = currentMood == Mood.Angry;
     currentMood = Mood.Happy;
     var color = GetComponent<SpriteRenderer>().color;
-    int i = 0;
     HappyParticles.Play();
     anim.SetTrigger("ToNormal");
     gameObject.GetComponent<NPCMovement>().SetNextDestination();
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
       yield return null;
-      i++;
     }
 
     //GetComponent<SpriteRenderer>().color = Color.green;
-    
     yield return new WaitForSeconds(TimeToNeutral);
     HappyParticles.Stop();
     yield return BecomeNeutralCoroutine();

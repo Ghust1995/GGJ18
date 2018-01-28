@@ -17,6 +17,7 @@ public class Ammo : MonoBehaviour
   private Vector2 center;
 
   public Sprite seed;
+  public bool CanReproduce = true;
 
   void Awake()
   {
@@ -62,7 +63,7 @@ public class Ammo : MonoBehaviour
     //yield return animator.wa
     IsGrowing = false;
     this.First.FlowersInGroup++;
-    if (this.First.FlowersInGroup < MaxFlowersInGroup)
+    if (this.First.FlowersInGroup < MaxFlowersInGroup && CanReproduce)
     {
       yield return Replicate();
     }
@@ -76,7 +77,6 @@ public class Ammo : MonoBehaviour
     if (IsAlive)
     {
       var spawnPosition = transform.position + (Vector3)Random.insideUnitCircle.normalized * Random.Range(radius, MaxReplicationRadius);
-      var x = worldData.Bounds.Contains((Vector2)spawnPosition);
       var inside = Mathf.Abs(spawnPosition.x - worldData.Bounds.position.x) < worldData.Bounds.size.x / 2 && Mathf.Abs(spawnPosition.y - worldData.Bounds.position.y) < worldData.Bounds.size.y / 2;
       if (inside)
       {
@@ -115,8 +115,10 @@ public class Ammo : MonoBehaviour
       case "Player":
         {
           var gun = collision.gameObject.GetComponent<Gun>();
-          gun.Flowers++;
-          Destroy(this.gameObject);
+          if(gun.ammo < gun.MaxAmmo) {
+            gun.Flowers++;
+            Destroy(this.gameObject);
+          }
           break;
         }
       default:

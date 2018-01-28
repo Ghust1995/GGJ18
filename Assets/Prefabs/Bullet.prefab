@@ -134,6 +134,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 0
   KeepAliveTime: 0.1
+  FadeOutTime: 0.1
 --- !u!212 &212320873190092668
 SpriteRenderer:
   m_ObjectHideFlags: 1
