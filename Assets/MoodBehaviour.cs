@@ -12,6 +12,7 @@ public enum Mood
 [RequireComponent(typeof(Collider2D))]
 public class MoodBehaviour : MonoBehaviour
 {
+  public ParticleSystem HappyParticles;
 
   public Animator anim;
   public Mood currentMood;
@@ -92,6 +93,7 @@ public class MoodBehaviour : MonoBehaviour
     currentMood = Mood.Happy;
     var color = GetComponent<SpriteRenderer>().color;
     int i = 0;
+    HappyParticles.Play();
     for (var time = 0.0f; time < AnimationTime; time += Time.deltaTime)
     {
       if (fromDemon)
@@ -112,6 +114,7 @@ public class MoodBehaviour : MonoBehaviour
     //GetComponent<SpriteRenderer>().color = Color.green;
     anim.SetTrigger("ToNormal");
     yield return new WaitForSeconds(TimeToNeutral);
+    HappyParticles.Stop();
     yield return BecomeNeutralCoroutine();
   }
   public void BecomeNeutral()

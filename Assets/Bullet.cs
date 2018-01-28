@@ -61,10 +61,10 @@ public class Bullet : MonoBehaviour
       case "NPC":
         {
           var npcMood = collision.gameObject.GetComponent<MoodBehaviour>();
-          npcMood.BecomeHappy();
-          if(!isStopped) {
+          if(!isStopped && npcMood.currentMood == Mood.Angry) {
             FindObjectOfType<Freezer>().Freeze();
           }
+          npcMood.BecomeHappy();
 					Destroy(this.gameObject);
           break;
         }
