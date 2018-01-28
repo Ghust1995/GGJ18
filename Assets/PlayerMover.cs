@@ -71,13 +71,6 @@ public class PlayerMover : MonoBehaviour
       anim.SetBool("moving", false);
     }
 
-    if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x > transform.position.x)
-    {
-      sprite.flipX = false;
-    }
-    else if (Camera.main.ScreenToWorldPoint(Input.mousePosition).x < transform.position.x)
-    {
-      sprite.flipX = true;
-    }
+      sprite.flipX = FindObjectOfType<Aim>().transform.position.x < 0;
   }
 }
