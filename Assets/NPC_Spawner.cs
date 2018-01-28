@@ -27,7 +27,6 @@ public class NPC_Spawner : MonoBehaviour {
 
         if (NPCCount < MaxNpcCount)
         {
-            Debug.Log("New npc");
             var pos = spawnPoints[Random.Range(0, spawnPoints.Count)].position;
             Instantiate(NPC, pos, Quaternion.identity);
             NPCCount++;

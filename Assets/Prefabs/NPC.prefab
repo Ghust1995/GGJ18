@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Destination: {x: 0, y: 0}
-  Angry: 0
+  Target: {fileID: 0}
+  HaveTarget: 0
   VelocityNPC: {x: 40, y: 20}
   wantExit: 0
   SearchRadius: 69.35

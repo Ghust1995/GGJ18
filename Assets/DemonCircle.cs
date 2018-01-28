@@ -19,27 +19,21 @@ public class DemonCircle : MonoBehaviour
     c = GetComponent<Collider2D>();
     s = GetComponent<SpriteRenderer>();
     c.enabled = false;
-    StartCoroutine(DelayCoroutine());
-
   }
 
   public AnimationCurve fadeIn;
 
-  IEnumerator DelayCoroutine()
-  {
-    for (float time = 0.0f; time < Delay; time += Time.deltaTime)
-    {
-      Color c = Color.white;
-      c.a = time / Delay;
-      s.color = c;
-      yield return null;
-    }
-    s.color = Color.white;
-    anim.SetTrigger("Trigger");
-    c.enabled = true;
-    yield return new WaitForSeconds(ActiveTime);
-    Destroy(this.gameObject);
-  }
+	void Update() {
+		if(anim.GetCurrentAnimatorStateInfo(0).IsName("PentagramFire")) {
+			c.enabled = true;
+		}
+		if(anim.GetCurrentAnimatorStateInfo(0).IsName("PentagramStartRev")) {
+			c.enabled = false;
+		}
+		if(anim.GetCurrentAnimatorStateInfo(0).IsName("End")) {
+			Destroy(this.gameObject);
+		}
+	}
 
   // Update is called once per frame
   void OnCollisionEnter2D(Collision2D collision)
