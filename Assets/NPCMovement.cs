@@ -137,6 +137,7 @@ public class NPCMovement : MonoBehaviour
       else
       {
         Destroy(gameObject);
+        FindObjectOfType<NPC_Spawner>().NPCCount--;
       }
     }
   }
