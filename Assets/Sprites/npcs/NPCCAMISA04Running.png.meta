@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: fed0f35df2ffd0a489f896c4c7e0d3eb
-timeCreated: 1517150171
+timeCreated: 1517150504
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: NPCCAMISA04Running_0
+    21300002: NPCCAMISA04Running_1
+    21300004: NPCCAMISA04Running_2
+    21300006: NPCCAMISA04Running_3
+    21300008: NPCCAMISA04Running_4
+    21300010: NPCCAMISA04Running_5
+    21300012: NPCCAMISA04Running_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -98,7 +105,105 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_5
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCCAMISA04Running_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

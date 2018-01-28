@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: c43800216f41eff448386e3b80eed5b5
-timeCreated: 1517150170
+timeCreated: 1517150545
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: NPCTERNO01Running (1)_0
+    21300002: NPCTERNO01Running (1)_1
+    21300004: NPCTERNO01Running (1)_2
+    21300006: NPCTERNO01Running (1)_3
+    21300008: NPCTERNO01Running (1)_4
+    21300010: NPCTERNO01Running (1)_5
+    21300012: NPCTERNO01Running (1)_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -98,7 +105,105 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_5
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCTERNO01Running (1)_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

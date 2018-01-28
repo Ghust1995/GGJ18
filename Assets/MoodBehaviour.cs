@@ -17,11 +17,14 @@ public class MoodBehaviour : MonoBehaviour
   public Animator anim;
   public Mood currentMood;
 
+  public int NumNpcs = 11;
+
   // Use this for initialization
   void Start()
   {
     FindObjectOfType<NPCManager>().AllNPCs.Add(this);
     anim = GetComponent<Animator>();
+    anim.SetInteger("NPC", Random.Range(1, NumNpcs + 1));
 
     switch (currentMood)
     {

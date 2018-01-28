@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: e76830b1791e87f4a91329ab20169b83
-timeCreated: 1517150171
+timeCreated: 1517150524
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: NPCpolicial01Running_0
+    21300002: NPCpolicial01Running_1
+    21300004: NPCpolicial01Running_2
+    21300006: NPCpolicial01Running_3
+    21300008: NPCpolicial01Running_4
+    21300010: NPCpolicial01Running_5
+    21300012: NPCpolicial01Running_6
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -98,7 +105,105 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: NPCpolicial01Running_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCpolicial01Running_1
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCpolicial01Running_2
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 486
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCpolicial01Running_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCpolicial01Running_4
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCpolicial01Running_5
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 243
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: NPCpolicial01Running_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 243
+        height: 243
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
